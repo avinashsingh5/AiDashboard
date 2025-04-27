@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-background-dark text-white font-sans overflow-x-hidden;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary-600 rounded;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary-500;
+}
+
+/* Custom glassmorphism */
+.glass {
+  @apply bg-opacity-10 backdrop-blur-lg border border-white border-opacity-10 bg-background-card;
+}
+
+/* Text gradient */
+.text-gradient {
+  @apply font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-accent-400;
+}
+
+/* HUD-style elements */
+.hud-panel {
+  @apply glass p-4 rounded-lg relative;
+}
+
+.hud-panel::before {
+  content: '';
+  @apply absolute top-0 left-0 w-1 h-full bg-primary-400;
+}
+
+.hud-border {
+  position: relative;
+}
+
+.hud-border::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  border: 1px solid transparent;
+  border-image: linear-gradient(to right, #0088e6, transparent 80%) 1;
+  pointer-events: none;
+}
+
+/* Neon text */
+.neon-text {
+  text-shadow: 0 0 5px #0088e6, 0 0 15px #0088e6;
+}
+
+.neon-text-red {
+  text-shadow: 0 0 5px #ff1744, 0 0 15px #ff1744;
+}
+
+/* Card tilt effect */
+.tilt-card {
+  transition: transform 0.2s ease;
+}
+
+.tilt-card:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(5deg);
+}
